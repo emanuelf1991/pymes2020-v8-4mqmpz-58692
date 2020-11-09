@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Articulo } from "../../models/articulo";
+import { Component, OnInit } from '@angular/core';
+import { Contacto } from "../../models/contacto";
 import { ArticuloFamilia } from "../../models/articulo-familia";
 import { ArticulosService } from "../../services/articulos.service";
 import { ArticulosFamiliasService } from "../../services/articulos-familias.service";
@@ -7,12 +7,12 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
 @Component({
-  selector: "app-articulos",
-  templateUrl: "./articulos.component.html",
-  styleUrls: ["./articulos.component.css"]
+  selector: 'app-contactos',
+  templateUrl: './contactos.component.html',
+  styleUrls: ['./contactos.component.css']
 })
-export class ArticulosComponent implements OnInit {
-  Titulo = "Articulos";
+export class ContactosComponent implements OnInit {
+ Titulo = "Contactos";
   TituloAccionABMC = {
     A: "(Agregar)",
     B: "(Eliminar)",
@@ -26,7 +26,7 @@ export class ArticulosComponent implements OnInit {
     RD: " Revisar los datos ingresados..."
   };
 
-  Lista: Articulo[] = [];
+  Lista: Contacto[] = [];
   RegistrosTotal: number;
   Familias: ArticuloFamilia[] = [];
   SinBusquedasRealizadas = true;
