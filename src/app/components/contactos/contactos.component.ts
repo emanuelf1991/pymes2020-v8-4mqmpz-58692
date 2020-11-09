@@ -56,19 +56,19 @@ export class ContactosComponent implements OnInit {
       Activo: [true]
     });
     this.FormReg = this.formBuilder.group({
-      IdArticulo: [0],
+      IdContacto: [0],
       Nombre: [
         "",
         [Validators.required, Validators.minLength(4), Validators.maxLength(55)]
       ],
-      Precio: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
-      Stock: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
-      CodigoDeBarra: [
+      // Precio: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
+      // Stock: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
+      Telefono: [
         "",
         [Validators.required, Validators.pattern("[0-9]{13}")]
       ],
-      IdArticuloFamilia: ["", [Validators.required]],
-      FechaAlta: [
+      // IdArticuloFamilia: ["", [Validators.required]],
+      FechaNacimiento: [
         "",
         [
           Validators.required,
