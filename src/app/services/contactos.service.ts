@@ -14,7 +14,7 @@ import { Contacto } from "../models/contacto";
 })
 export class ContactosService {
 
-  private resourceUrl ="https://demo3151356.mockable.io/clientes";
+  private resourceUrl ="https://pav2.azurewebsites.net/api/contactos";
   constructor(private http: HttpClient) {}
 
   getContactos(): Observable<Contacto[]>{
