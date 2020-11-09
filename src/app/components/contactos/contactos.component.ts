@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contacto } from "../../models/contacto";
-import { ArticuloFamilia } from "../../models/articulo-familia";
 import { ContactosService } from "../../services/contactos.service";
-import { ArticulosFamiliasService } from "../../services/articulos-familias.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
@@ -49,7 +47,6 @@ export class ContactosComponent implements OnInit {
     //private articulosService: MockArticulosService,
     //private articulosFamiliasService: MockArticulosFamiliasService,
     private contactosService: ContactosService,
-    private articulosFamiliasService: ArticulosFamiliasService,
     private modalDialogService: ModalDialogService
   ) {}
 
@@ -83,14 +80,14 @@ export class ContactosComponent implements OnInit {
       Activo: [true]
     });
 
-    this.GetFamiliasArticulos();
+   // this.GetFamiliasArticulos();
   }
 
-  GetFamiliasArticulos() {
-    this.articulosFamiliasService.get().subscribe((res: ArticuloFamilia[]) => {
-      this.Familias = res;
-    });
-  }
+  // GetFamiliasArticulos() {
+  //   this.articulosFamiliasService.get().subscribe((res: ArticuloFamilia[]) => {
+  //     this.Familias = res;
+  //   });
+  // }
 
   Agregar() {
     this.AccionABMC = "A";
@@ -113,7 +110,7 @@ export class ContactosComponent implements OnInit {
     Buscar() {
     this.SinBusquedasRealizadas = false;
     this.contactosService.getContactos().subscribe({
-      next: Cliente =>{ this.Lista = Cliente}
+      next: Contacto =>{ this.Lista = Contacto}
       
     });
     // this.clientesService.get().subscribe((res: any) => {
