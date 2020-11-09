@@ -65,7 +65,7 @@ export class ContactosComponent implements OnInit {
       // Stock: [null, [Validators.required, Validators.pattern("[0-9]{1,7}")]],
       Telefono: [
         "",
-        [Validators.required, Validators.pattern("[0-9]{13}")]
+        [Validators.required, Validators.pattern("[0-9]{1,15}")]
       ],
       // IdArticuloFamilia: ["", [Validators.required]],
       FechaNacimiento: [
@@ -166,9 +166,9 @@ export class ContactosComponent implements OnInit {
     const itemCopy = { ...this.FormReg.value };
 
     //convertir fecha de string dd/MM/yyyy a ISO para que la entienda webapi
-    var arrFecha = itemCopy.FechaAlta.substr(0, 10).split("/");
+    var arrFecha = itemCopy.FechaNacimiento.substr(0, 10).split("/");
     if (arrFecha.length == 3)
-      itemCopy.FechaAlta = new Date(
+      itemCopy.FechaNacimiento = new Date(
         arrFecha[2],
         arrFecha[1] - 1,
         arrFecha[0]
