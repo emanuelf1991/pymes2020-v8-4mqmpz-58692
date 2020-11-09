@@ -28,7 +28,7 @@ export class ContactosComponent implements OnInit {
 
   Lista: Contacto[] = [];
   RegistrosTotal: number;
-  Familias: ArticuloFamilia[] = [];
+  //Familias: ArticuloFamilia[] = [];
   SinBusquedasRealizadas = true;
 
   Pagina = 1; // inicia pagina 1
@@ -101,13 +101,25 @@ export class ContactosComponent implements OnInit {
   }
 
   // Buscar segun los filtros, establecidos en FormReg
-  Buscar() {
+  // Buscar() {
+  //   this.SinBusquedasRealizadas = false;
+  //   this.contactosService
+  //     .get().subscribe((res: any) => {
+  //       this.Lista = res.Lista;
+  //       this.RegistrosTotal = res.RegistrosTotal;
+  //     });
+  // }
+
+    Buscar() {
     this.SinBusquedasRealizadas = false;
-    this.contactosService
-      .get().subscribe((res: any) => {
-        this.Lista = res.Lista;
-        this.RegistrosTotal = res.RegistrosTotal;
-      });
+    this.contactosService.getContactos().subscribe({
+      next: Cliente =>{ this.Lista = Cliente}
+      
+    });
+    // this.clientesService.get().subscribe((res: any) => {
+    //   this.Lista = res.Lista;
+    //   this.RegistrosTotal = res.RegistrosTotal;
+    //});
   }
 
   // Obtengo un registro especifico según el Id

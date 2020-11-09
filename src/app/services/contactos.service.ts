@@ -5,7 +5,7 @@ import {
   HttpErrorResponse,
   HttpParams
 } from "@angular/common/http";
-import { of } from "rxjs";
+import { Observable, of } from "rxjs";
 import { Contacto } from "../models/contacto";
 
 
@@ -13,33 +13,26 @@ import { Contacto } from "../models/contacto";
   providedIn: "root"
 })
 export class ContactosService {
-  resourceUrl: string;
-  constructor(private httpClient: HttpClient) {
-    // la barra al final del resourse url es importante para los metodos que concatenan el id del recurso (GetById, Put)
-    //this.resourceUrl = "https://pavii.ddns.net/api/articulos/";
-    //this.resourceUrl = "https://bitgocba.duckdns.org/api/Articulos/";
-    this.resourceUrl = "https://pav2.azurewebsites.net/api/contactos";
+
+  private resourceUrl ="https://demo3151356.mockable.io/clientes";
+  constructor(private http: HttpClient) {}
+
+  getContactos(): Observable<Contacto[]>{
+    return this.http.get<Contacto[]>(this.resourceUrl);
   }
 
   get() {
     let params = new HttpParams();
-  
-    return this.httpClient.get(this.resourceUrl, { params: params });
+
+    return this.http.get(this.resourceUrl, { params: params });
   }
 
-  // getById(Id: number) {
-  //   return this.httpClient.get(this.resourceUrl + Id);
-  // }
+
+  //getById(Id: number) {
+  // return this.httpClient.get(this.resourceUrl + Id);
+  //}
 
   post(obj: Contacto) {
-    return this.httpClient.post(this.resourceUrl, obj);
+    return this.http.post(this.resourceUrl, obj);
   }
-
-  // put(Id: number, obj: Articulo) {
-  //   return this.httpClient.put(this.resourceUrl + Id, obj);
-  // }
-
-  // delete(Id) {
-  //   return this.httpClient.delete(this.resourceUrl + Id);
-  // }
 }
