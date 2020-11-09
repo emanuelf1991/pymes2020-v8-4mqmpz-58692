@@ -175,8 +175,8 @@ export class ContactosComponent implements OnInit {
       ).toISOString();
 
     // agregar post
-    if (itemCopy.IdArticulo == 0 || itemCopy.IdArticulo == null) {
-      itemCopy.IdArticulo = 0;
+    if (itemCopy.IdContacto == 0 || itemCopy.IdContacto == null) {
+      itemCopy.IdContacto = 0;
       this.contactosService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         this.modalDialogService.Alert("Registro agregado correctamente.");
